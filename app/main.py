@@ -4,15 +4,15 @@ def copy_file(command : str) -> None:
 
     parts = command.split()
     if len(parts) == 3:
-        cmd, source_file_name, destination_file_name = parts
+        cmd, source_file, copied_file = parts
     else:
         return
 
-    if cmd != "cp" or source_file_name == destination_file_name:
+    if cmd != "cp" or source_file == copied_file:
         return
 
     try:
-        with open(parts[1], "r") as source, open(parts[2], "w") as destination:
-            destination.write(source.read())
+        with open(source_file, "r") as source, open(copied_file, "w") as copied:
+            copied.write(source.read())
     except FileNotFoundError:
         return
