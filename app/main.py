@@ -12,7 +12,7 @@ def copy_file(command : str) -> None:
         return
 
     try:
-        with open(source_file, "r") as source, open(copied_file, "w") as copied:
-            copied.write(source.read())
+        with open(source_file, "r") as source, open(copied_file, "w") as copy:
+            copy.write(source.read())
     except FileNotFoundError:
         return
